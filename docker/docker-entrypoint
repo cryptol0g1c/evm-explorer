@@ -1,0 +1,26 @@
+#!/bin/sh
+
+set -e
+
+# Set default values for App ENV's
+export PORT=${PORT:-'8080'}
+export NODE_ENV=${NODE_ENV:-'production'}
+# Set default values for Environment ENV's
+export EXPLORER_URL=${URL:-'http://localhost:8080'}
+export RPC_PROVIDER=${RPC_PROVIDER:-'http://localhost:8545'}
+export WS_PROVIDER=${WS_PROVIDER:-'ws://localhost:8546'}
+export MONGO_URI=${MONGO_URI:-'mongodb://localhost:27017/explorer'}
+
+# Create config file
+if [ ! -f ./config.js ]; then
+    mv docker/config.docker.js config.js
+fi
+
+# Start app
+if [ $NODE_ENV = 'production' ]; then
+    export BABEL_ENV=production
+    ./node_modules/.bin/webpack --config webpack.config.production.js
+    pm2-runtime start npm -- start
+else
+    npm run devmode
+fi

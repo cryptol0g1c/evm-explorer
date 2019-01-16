@@ -1,0 +1,26 @@
+const Web3 = require('web3');
+
+const hostURL = 'http://rpc-legacy.bitsign.network';
+const wsURL = 'ws://rpc-legacy.bitsign.network:8546';
+const explorerUrl = 'http://localhost:8080';
+
+module.exports = {
+  // TODO: Restore this configuration when works
+  // provider: new Web3.providers.IpcProvider(
+  //   `${process.env['HOME']}/projects/cryptologic/bitsign-federation/base-path/jsonrpc.ipc`,
+  //   net
+  // ),
+  explorerUrl,
+  hostURL,
+  wsURL,
+  provider: new Web3.providers.HttpProvider(hostURL),
+  wsProvider: new Web3.providers.WebsocketProvider(wsURL),
+  mongoUri: 'mongodb://localhost:27017/explorer',
+  miners: [{
+    address: '0xe33e78004f72e45a97b778b63219b1cbafab9986',
+    name: ''
+  }, {
+    address: '0x0a0f29a9b479d91f6d112b203c7d9db0cb4cdb84',
+    name: ''
+  }]
+};

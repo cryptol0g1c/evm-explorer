@@ -1,0 +1,23 @@
+version: '3'
+services:
+
+  bitsign-explorer:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      - PORT=3000
+      - NODE_TYPE=production
+      - EXPLORER_URL=http://localhost:3000
+      - RPC_PROVIDER=http://rpc-legacy.bitsign.network
+      - WS_PROVIDER=ws://rpc-legacy.bitsign.network/ws
+      - MONGO_URI=mongodb://mongo:27017/explorer
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:3
+    ports:
+      - 27017:27017

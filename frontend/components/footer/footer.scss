@@ -1,0 +1,18 @@
+.footerStyle {
+	border-top: 1px solid #ddd;
+	height: 50px;
+	background-color: #f0f2f5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media (max-width: 768px) {
+	.footerStyle {
+		font-size: 10px;
+	}
+}
+
+@media (min-width: 768px) {
+	
+}

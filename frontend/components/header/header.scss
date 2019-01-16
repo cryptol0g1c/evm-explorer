@@ -1,0 +1,39 @@
+@media (max-width: 768px) {
+	.brandLogo {
+		display: none;
+	}
+
+	.searchInput {
+		min-width: 200px;
+		margin-right: 30px;
+		height: 40px;
+	}
+}
+
+@media (min-width: 768px) {
+	.brandLogo {
+		display: block;
+		height: 4rem;
+    width: 10rem;
+	}
+
+	.searchInput {
+		min-width: 400px;
+		margin-right: 30px;
+		height: 40px;
+	}
+}
+
+@media (min-width: 992px) {
+	.brandLogo {
+		display: block;
+		height: 4rem;
+    width: 10rem;
+	}
+
+	.searchInput {
+		min-width: 600px;
+		margin-right: 30px;
+		height: 40px;
+	}
+}
